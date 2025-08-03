@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TASK 11 | OPTICAL CALCULATOR</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/task-11.css" />
+</head>
+
+<body>
+
+  <!-- Loading Animation -->
+    <div class="loading-container">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="loading-bar">
+            <div class="loading-colour"></div>
+        </div>
+        <div class="loading-corner">
+            <div class="loading-num">0</div>
+        </div>
+    </div>
+
+    <!-- invisible image for siteloader; siteloader breaks if there's nothing to load-->
+    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" style="display: none;" />
+
+    <!-- Shared Header -->
+    <div id="header"></div>
+
+    <!-- Background -->
+    <div class="rainbow-bg"></div>
+    <div class="rainbow-shape shape-1"></div>
+    <div class="rainbow-shape shape-2"></div>
+    <div class="rainbow-shape shape-3"></div>
+
+    <!-- PUT MAIN CODE BELOW THIS -->
+    <!-- PUT MAIN CODE BELOW THIS -->
+    <!-- PUT MAIN CODE BELOW THIS -->
+
+    <div class="top-padding"></div>
+
+
+
+
+    <div class="main-container">
+        <div class="chart-container">
+            <div>
+                <canvas id="chart-task-11"></canvas>
+                <canvas id="gridCanvas"></canvas>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <div class="title">RAINBOW PHYSICS</div>
+
+            <div class="mode-toggle-wrapper">
+                <button id="modeToggle1"></button>
+                <label for="modeToggle1" class="mode-toggle hover-underline fade">TASK A</label>
+                <span class="separator">|</span>
+                <button id="modeToggle2"></button>
+                <label for="modeToggle2" class="mode-toggle hover-underline fade">TASK B</label>
+                <span class="separator">|</span>
+                <button id="modeToggle3"></button>
+                <label for="modeToggle3" class="mode-toggle hover-underline fade">TASK C</label>
+                <span class="separator">|</span>
+                <button id="modeToggle4"></button>
+                <label for="modeToggle4" class="mode-toggle hover-underline fade">TASK D</label>
+            </div>
+
+            
+
+            <div class="slider-container">
+                <div class="slider-group">
+                    <div class="slider-label modeOneShow"><strong><math class="text-equation"><mi>f</mi></math>:</strong><span id="fValue" class="slider-value">550.00</span><div class="slider-value">THz</div></div>
+                    <input type="range" id="sliderF" class="vertical modeOneShow" min="405" max="790" step="0.1" value="550" />
+                </div>
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-group">
+                    <div class="slider-label modeFourShow"><strong><math class="text-equation"><mi>α</mi></math>:</strong><span id="solarAngleValue" class="slider-value">0.0</span><div class="slider-value">°</div></div>
+                    <input type="range" id="sliderSolarAngle" class="vertical modeFourShow" min="0" max="45" step="0.1" value="0" />
+                </div>
+            </div>
+
+
+            <div class="text modeOneShow">
+                The elevation angle 
+                <math class="text-equation">
+                    <mi>ε</mi>
+                </math>
+                of light deflected within a water droplet is plotted against the angle of incidence
+                <math class="text-equation">
+                    <mi>θ</mi>
+                </math>
+                . The lower curve corresponds to the primary rainbow, while the upper curve represents the secondary rainbow.
+            </div>
+
+            <div class="text modeOneShow">
+                The minima and maxima denote angles of concentrated light deflection, resulting in focused regions that correspond to the rainbow's maximum observed intensity. Curve colors represent the visible spectrum at the selected frequency.
+            </div>
+
+            <div class="text modeTwoShow">
+                The elevation angle 
+                <math class="text-equation">
+                    <mi>ε</mi>
+                </math>
+                of light deflected within a water droplet is plotted against the frequency
+                <math class="text-equation">
+                    <mi>f</mi>
+                </math>
+                of light. The lower curve corresponds to the primary rainbow, while the upper curve represents the secondary rainbow.
+            </div>
+
+            <div class="text modeTwoShow">
+                These elevation angles correspond to the minima and maxima of light deflection within the droplet, indicating focused regions where light is concentrated. These focused angles correspond to the rainbow’s maximum observed intensity.
+            </div>
+
+            <div class="text modeTwoShow">
+                Curve colors represent the visible spectrum at the selected frequency, illustrating how dispersion causes the angular separation of colors in rainbows.
+            </div>
+
+            <div class="text modeThreeShow">
+                The refraction angle 
+                <math class="text-equation">
+                    <mi>φ</mi>
+                </math>
+                of light inside a water droplet is plotted as a function of frequency
+                <math class="text-equation">
+                    <mi>f</mi>
+                </math>
+                . The two lower curves represent the light paths for the primary and secondary rainbows, respectively. These angles correspond to the internal refraction at the droplet’s back surface just before the final exit.
+            </div>
+
+            <div class="text modeThreeShow">
+                The upper black curve shows the critical angle for total internal reflection, above which light is completely reflected within the droplet. Since the rainbow paths lie below this threshold, some light escapes the droplet at each internal reflection, resulting in intensity loss — especially for the secondary rainbow, which undergoes more reflections.
+            </div>
+
+            <div class="text modeThreeShow">
+                This chart visualizes how refractive index dispersion affects the internal light path and highlights the physical limit imposed by total internal reflection in shaping the brightness and formation of rainbows.
+            </div>
+
+        </div>
+    </div>
+
+
+
+  <!-- PUT MAIN CODE ABOVE THIS -->
+  <!-- PUT MAIN CODE ABOVE THIS -->
+  <!-- PUT MAIN CODE ABOVE THIS -->
+
+  <!-- Shared Footer -->
+    <div id="footer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <script src="https://www.unpkg.com/siteloader@0.0.90/dist/sl.umd.js"></script>
+    <script src="assets/js/task-11.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

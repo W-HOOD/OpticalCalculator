@@ -63,6 +63,14 @@ function update(){
         y.length = 0;
         var x_start = parseFloat(document.getElementById("x_start").value);
         var x_end = parseFloat(document.getElementById("x_end").value);
+        // Show warning if max < min
+      if (x_end < x_start) {
+          document.getElementById("warningOverlay").style.display = "flex";
+          return; // Stop further processing
+      } else {
+          document.getElementById("warningOverlay").style.display = "none";
+      }
+
         if (document.getElementById("input_choice").value=="wavelength") {
             for (let i = x_start; i < x_end; i += ((x_end - x_start) / 10000)) { //simulate linspace as js does not have a builtin function.
                 let temp = 0;

@@ -1,6 +1,6 @@
 ## 💡 Project Description
 
-**This repository contains and hosts the code for <a href="https://opticalcalculator.com" target="_blank">opticalcalculator.com</a>, our submissioin for the 2025 BPhO Computational Challenge.**
+**This repository contains and hosts the code for <a href="https://opticalcalculator.com" target="_blank">opticalcalculator.com</a>, our submission for the 2025 BPhO Computational Challenge.**
 The website contains interactive simulations and graph plots of various optical phenomenons, as required by the BPhO competition.
 
 

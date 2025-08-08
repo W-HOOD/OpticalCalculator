@@ -3,11 +3,11 @@ const dpr = baseDpr * 3;
 const cssSize = 600;
 const internalSize = cssSize * dpr;
 
-// Add these with your other global variables
+
 let gridSize = 100;  // Adjust tessellation density
-let indexBuffer;    // Will hold our index buffer
-let indices = [];   // Will hold triangle indices
-let vertexCount;    // Track total vertices
+let indexBuffer;
+let indices = [];
+let vertexCount;
 
 let transformationCenterX = 0;
 let transformationCenterY = 0;
@@ -168,7 +168,7 @@ function drawArc(ctx, mirrorX, mirrorY, scale, radius, canvasSize, dpr) {
 
     ctx.save();
     
-    // 1. Draw mirror outline (no fill)
+    // 1. Draw mirror outline
     ctx.lineWidth = 1;
     ctx.strokeStyle = '#c1b80f';
     ctx.beginPath();
@@ -184,13 +184,13 @@ function drawArc(ctx, mirrorX, mirrorY, scale, radius, canvasSize, dpr) {
     ctx.restore();
 }
 
-// Helper function to draw '+' markers
+
 function drawCross(ctx, x, y, size) {
   ctx.beginPath();
-  // Diagonal line (top-left to bottom-right)
+
   ctx.moveTo(x - size, y - size);
   ctx.lineTo(x + size, y + size);
-  // Diagonal line (bottom-left to top-right)
+
   ctx.moveTo(x - size, y + size);
   ctx.lineTo(x + size, y - size);
   ctx.stroke();
@@ -311,7 +311,7 @@ function main() {
 
     const gl = glCanvas.getContext("webgl2", { alpha: true });
     gl.enable(gl.BLEND);
-    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA); // Standard alpha blending
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
     if (!gl) {
         alert("WebGL2 not supported.");
         return;
@@ -330,13 +330,13 @@ function main() {
     const radiusLoc = gl.getUniformLocation(program, "u_radius");
     const scaleLoc = gl.getUniformLocation(program, "u_scale");
     const angleLoc = gl.getUniformLocation(program, "u_angle");
-    const aspectLoc = gl.getUniformLocation(program, "u_aspect");    // New
-    const transformCenterXLoc = gl.getUniformLocation(program, "u_transformCenterX"); // New
-    const transformCenterYLoc = gl.getUniformLocation(program, "u_transformCenterY"); // New
-    const applyMirrorLoc = gl.getUniformLocation(program, "u_applyMirror"); // New
+    const aspectLoc = gl.getUniformLocation(program, "u_aspect");
+    const transformCenterXLoc = gl.getUniformLocation(program, "u_transformCenterX");
+    const transformCenterYLoc = gl.getUniformLocation(program, "u_transformCenterY");
+    const applyMirrorLoc = gl.getUniformLocation(program, "u_applyMirror");
 
     const renderImagesWithUniforms = (texture, img, scale) => {
-        // Update the renderImagesWithUniforms call to match the function definition:
+
         renderImages(
             gl, program, 
             matrixLoc, texture, img, scale,
@@ -349,16 +349,11 @@ function main() {
 
     };
 
-    // Replace the positions and texCoords arrays with:
-
-
-    // Delete the old position/texCoord arrays and replace with:
 
     // Generate vertex grid
     const vertices = [];
     const texCoords = [];
-    indices = []; // Reset indices
-
+    indices = [];
     for (let y = 0; y <= gridSize; y++) {
         for (let x = 0; x <= gridSize; x++) {
             vertices.push(
@@ -383,21 +378,21 @@ function main() {
 
     vertexCount = indices.length; // Store total vertices
 
-    // Update position buffer (keep the same buffer reference)
+    // Update position buffer
     const posBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, posBuffer);
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
     gl.enableVertexAttribArray(positionLoc);
     gl.vertexAttribPointer(positionLoc, 2, gl.FLOAT, false, 0, 0);
 
-    // Update texture coordinate buffer (keep the same buffer reference)
+    // Update texture coordinate buffer
     const texBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, texBuffer);
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(texCoords), gl.STATIC_DRAW);
     gl.enableVertexAttribArray(texCoordLoc);
     gl.vertexAttribPointer(texCoordLoc, 2, gl.FLOAT, false, 0, 0);
 
-    // Create and bind index buffer (NEW)
+    // Create and bind index buffer
     const indexBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
     gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
@@ -487,7 +482,7 @@ function main() {
         ctx.globalCompositeOperation = 'source-over';
         drawArc(ctx, mirrorX, mirrorY, scale, radius, cssSize, dpr);
     };
-    defaultImg.src = "assets/images/01-m416-lootprint.jpg";
+    defaultImg.src = "assets/images/Thumbnail.png";
 }
 
 main();

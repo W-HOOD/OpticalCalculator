@@ -4,7 +4,7 @@ body {
   padding: 0;
   overflow: hidden;
   position: relative;
-  background: white; /* Fallback */
+  background: white;
 }
 
 .rainbow-bg {
@@ -15,10 +15,10 @@ body {
   height: 100%;
   background: linear-gradient(
     135deg,
-    rgba(232, 121, 249, 0.15) 0%,    /* purple */
-    rgba(96, 165, 250, 0.15) 33%,    /* blue */
-    rgba(94, 234, 212, 0.15) 66%,    /* green */
-    rgba(232, 121, 249, 0.15) 100%   /* purple */
+    rgba(232, 121, 249, 0.15) 0%,
+    rgba(96, 165, 250, 0.15) 33%,
+    rgba(94, 234, 212, 0.15) 66%,
+    rgba(232, 121, 249, 0.15) 100%
   );
   background-size: 300% 300%;
   animation: gentleFlow 25s ease infinite;
@@ -166,7 +166,7 @@ strong {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 75px; /* Ensures consistent width per group */
+    width: 75px;
 }
 
 .slider-label {

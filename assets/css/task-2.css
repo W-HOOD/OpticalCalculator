@@ -4,7 +4,7 @@ body {
   padding: 0;
   overflow: hidden;
   position: relative;
-  background: white; /* Fallback */
+  background: white;
 }
 
 .rainbow-bg {
@@ -15,10 +15,10 @@ body {
   height: 100%;
   background: linear-gradient(
     135deg,
-    rgba(232, 121, 249, 0.15) 0%,    /* purple */
-    rgba(96, 165, 250, 0.15) 33%,    /* blue */
-    rgba(94, 234, 212, 0.15) 66%,    /* green */
-    rgba(232, 121, 249, 0.15) 100%   /* purple */
+    rgba(232, 121, 249, 0.15) 0%, 
+    rgba(96, 165, 250, 0.15) 33%,
+    rgba(94, 234, 212, 0.15) 66%,
+    rgba(232, 121, 249, 0.15) 100% 
   );
   background-size: 300% 300%;
   animation: gentleFlow 25s ease infinite;
@@ -73,43 +73,7 @@ body {
   50% { transform: translate(50px, 30px); }
 }
 
-/*
-body {
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg,
-    #e6f7ff 0%, 
-    #cceeff 25%, 
-    #b3e6ff 50%, 
-    #99ddff 75%, 
-    #80d4ff 100%);
-  background-size: 300% 300%;
-  animation: splitFlow 18s ease infinite;
-}
 
-@keyframes splitFlow {
-  0% {
-    background-position: 0% 0%, 100% 100%;
-    background-image: 
-      linear-gradient(15deg, #e6f7ff 0%, #b3e6ff 50%, transparent 50.1%),
-      linear-gradient(15deg, transparent 49.9%, #99ddff 50%, #80d4ff 100%);
-  }
-  50% {
-    background-position: 100% 0%, 0% 100%;
-    background-image: 
-      linear-gradient(-15deg, #cceeff 0%, #80d4ff 50%, transparent 50.1%),
-      linear-gradient(-15deg, transparent 49.9%, #e6f7ff 50%, #b3e6ff 100%);
-  }
-  100% {
-    background-position: 0% 0%, 100% 100%;
-    background-image: 
-      linear-gradient(15deg, #e6f7ff 0%, #b3e6ff 50%, transparent 50.1%),
-      linear-gradient(15deg, transparent 49.9%, #99ddff 50%, #80d4ff 100%);
-  }
-}
-
-*/
 
 math {
   color: rgb(0, 0, 0);
@@ -188,25 +152,7 @@ math {
     font-size: 15px;
 }
 
-/*
-.diagram-container {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    gap: 10%;
-}
 
-.diagram {
-    width: 30%;
-    height: auto;
-}
-
-.equation {
-    width: 10%;
-    height: auto;
-}
-*/
 
 table {
     table-layout: fixed;

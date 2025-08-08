@@ -176,22 +176,22 @@ function renderImages(gl, program, matrixLoc, texture, img, scaleFactor) {
   if (mirrorLineX > imageLeft && mirrorLineX < imageRight) {
     const pixelsRightOfLeftEdge = mirrorLineX - imageLeft;
     const imageWidth = imageRight - imageLeft;
-    clipTexX = pixelsRightOfLeftEdge / imageWidth; // value in [0, 1]
+    clipTexX = pixelsRightOfLeftEdge / imageWidth;
   } else if (mirrorLineX <= imageLeft) {
-    clipTexX = 0.0; // clip everything
+    clipTexX = 0.0;
   } else {
-    clipTexX = 1.1; // don't clip anything (outside right)
+    clipTexX = 1.1;
   }
 
   // Draw original (right) image with clipping
   gl.uniform1f(clipTexXLoc, clipTexX);
-  gl.uniform1i(isMirroredLoc, 0); // false
+  gl.uniform1i(isMirroredLoc, 0);
   gl.uniformMatrix3fv(matrixLoc, false, rightMatrix);
   gl.drawArrays(gl.TRIANGLES, 0, 6);
 
   // Draw mirrored image with same clipping logic
-  gl.uniform1f(clipTexXLoc, clipTexX); // same clip amount
-  gl.uniform1i(isMirroredLoc, 1); // true
+  gl.uniform1f(clipTexXLoc, clipTexX);
+  gl.uniform1i(isMirroredLoc, 1);
   gl.uniformMatrix3fv(matrixLoc, false, leftMatrix);
   gl.drawArrays(gl.TRIANGLES, 0, 6);
 }
@@ -333,7 +333,7 @@ function main() {
     ctx.globalCompositeOperation = 'source-over';
     drawMirrorLine(ctx, cssSize, mirrorLineX);
   };
-  defaultImg.src = "assets/images/01-m416-lootprint.jpg";
+  defaultImg.src = "assets/images/Thumbnail.png";
 }
 
 main();

@@ -152,7 +152,7 @@ async function initiatePage() {
 
 }
 
-// Then initialize page
+// initialize page
 document.addEventListener('DOMContentLoaded', () => {
   initiatePage();
 });

@@ -1,12 +1,12 @@
-// Adjustable parameters (to be linked to sliders later)
-let y1 = 2;      // meters
-let y2 = 2;      // meters
-let L = 10;     // meters
-let c = 299792458;    // speed of light (or wave speed), in m/s
-let c1 = 200000000;    // speed of light (or wave speed), in m/s
-let c2 = 200000000;    // speed of light (or wave speed), in m/s
-let theta = 0;    // degrees
-let phi = 0;    // degrees
+
+let y1 = 2;
+let y2 = 2;
+let L = 10;
+let c = 299792458;
+let c1 = 200000000;
+let c2 = 200000000;
+let theta = 0;
+let phi = 0;
 
 let chart = null;
 
@@ -67,7 +67,7 @@ function updateValuesAndChart() {
 
 const fadeDuration = 500; // fade duration in milliseconds
 let dashedLineOpacity = 1; // current opacity of dashed line (0 to 1)
-let targetOpacity = 1;      // target opacity
+let targetOpacity = 1;
 let lastTimestamp = null;
 
 const highlightMinPlugin = {
@@ -152,10 +152,10 @@ const drawMinPointOverlayPlugin = {
 
     const size = 6;
     ctx.beginPath();
-    // Horizontal line of plus
+
     ctx.moveTo(px - size, py);
     ctx.lineTo(px + size, py);
-    // Vertical line of plus
+
     ctx.moveTo(px, py - size);
     ctx.lineTo(px, py + size);
     ctx.stroke();
@@ -220,7 +220,6 @@ function loadGraph() {
                     },
                     ticks: {
                         callback: function(value) {
-                            // Format value to 3 significant figures
                             return Number.parseFloat(value).toPrecision(3);
                         },
                     }
@@ -267,13 +266,13 @@ function loadGraph() {
     };
 
     const ctx = document.getElementById('chart-task-4').getContext('2d');
-    chart = new Chart(ctx, config);  // Assign here
+    chart = new Chart(ctx, config);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
   loadGraph();
 
-  // Add slider listeners
+  // slider listeners
   document.getElementById('sliderY1').addEventListener('input', e => {
     y1 = parseFloat(e.target.value);
     updateValuesAndChart();

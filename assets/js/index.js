@@ -3,7 +3,7 @@ let planeMesh;
 let saturationTarget = 0.0;   // target saturation, 1 = full color, 0 = mostly grayscale
 
 
-// Existing animation logic
+// animation logic
 async function loadAnimation() {
   const loadingContainer = document.querySelector('.loading-container');
   formatTextLines();
@@ -217,7 +217,7 @@ function setupImageDistortion() {
 
     imageElement.style.display = "none";
 
-    // Now that renderer exists, add mouse listener here:
+
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("resize", onWindowResize);
   }
@@ -272,7 +272,7 @@ function setupImageDistortion() {
   loader.load(imageElement.src, (texture) => {
     texture.minFilter = THREE.LinearFilter;
     texture.magFilter = THREE.LinearFilter;
-    texture.anisotropy = 16; // or renderer.capabilities.getMaxAnisotropy(), after renderer init
+    texture.anisotropy = 16;
 
     initializeScene(texture);
     animate();
@@ -286,5 +286,5 @@ loadAnimation();
 
 window.addEventListener('click', () => {
   saturationOn = !saturationOn;
-  saturationTarget = saturationOn ? 0.7 : 0.0;
+  saturationTarget = saturationOn ? 0.8 : 0.0;
 });

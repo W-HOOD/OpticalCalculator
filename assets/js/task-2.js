@@ -35,10 +35,9 @@ const ssRes = inv_u.reduce((sum, x, i) => {
 }, 0);
 const rSquared = 1 - (ssRes / ssTot);
 
-//Compute focal distance
+
 const focalDistance = 1 / intercept;
 
-// Datapoint Colour
 const originalColor = '#00221a';
 const fadedColor = 'rgba(168, 168, 168, 0.3)';
 
@@ -113,7 +112,7 @@ function loadGraph() {
                 title: {
                     color: '000000',
                     display: true,
-                    text: 'Graph of 1/v against 1/u',
+                    text: 'GRAPH OF 1/v AGAINST 1/u',
                     align: 'center',
                     font: {
                         family: 'Montserrat',

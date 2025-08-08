@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TASKS | OPTICAL CALCULATOR</title>
+  <link rel="icon" href="assets\images\logo1.png" type="image/x-icon" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,10 +38,6 @@
   <div id="header"></div>
 
   <!-- Background -->
-  <div class="rainbow-bg"></div>
-  <div class="rainbow-shape shape-1"></div>
-  <div class="rainbow-shape shape-2"></div>
-  <div class="rainbow-shape shape-3"></div>
 
   <div class="top-padding"></div>
 
@@ -49,46 +46,67 @@
   <!-- PUT MAIN CODE BELOW THIS -->
 
 
-  <div class = "master">
+  <div class="master">
     
-    <div class = "task-links">
-      <div>
-        <span onclick = "jump('./task-1.html')" class="underline task">TASK 1</span>
-      </div>
-      <div>
-        <span onclick = "jump('./task-2.html')" class="underline task">TASK 2</span>
-      </div>
-      <div>
-        <span onclick = "jump('./task-3.html')" class="underline task">TASK 3</span>
-      </div>
-      <div>
-        <span onclick = "jump('./task-4.html')" class="underline task">TASK 4</span>
-      </div>
-      <div>
-        <span onclick = "jump('./task-5.html')" class="underline task">TASK 5</span>
-      </div>
-      <div>
-        <span onclick = "jump('./task-6.html')" class="underline task">TASK 6</span>
-      </div>
-      <div>
-        <span onclick = "jump('./task-7.html')" class="underline task">TASK 7</span>
-      </div>
-      <div>
-        <span onclick = "jump('./task-8.html')" class="underline task">TASK 8</span>
-      </div>
-      <div>
-        <span onclick = "jump('./task-9.html')" class="underline task">TASK 9</span>
-      </div>
-      <div>
-        <span onclick = "jump('./task-10.html')" class="underline task">TASK 10</span>
-      </div>
-      <div>
-        <span onclick = "jump('./task-11.html')" class="underline task">TASK 11</span>
-      </div>
-      <div>
-        <span onclick = "jump('./task-12.html')" class="underline task">TASK 12</span>
-      </div>
+  <div class="task-links">
+    <div class="task">
+      <span onclick="jump('./task-1.html')" class="underline task-number">TASK 1</span>
+      <span class="explaination-text">Graph Plot of the Refractive Index of Crown Glass and Water</span>
     </div>
+    <div class="task">
+      <span onclick="jump('./task-2.html')" class="underline task-number">TASK 2</span>
+      <span class="explaination-text">Verification of the Thin Lens Equation</span>
+    </div>
+    <div class="task">
+      <span onclick="jump('./task-3.html')" class="underline task-number">TASK 3</span>
+      <span class="explaination-text">Interactive Graph Plot of Fermat's Principle</span>
+    </div>
+    <div class="task">
+      <span onclick="jump('./task-4.html')" class="underline task-number">TASK 4</span>
+      <span class="explaination-text">Interactive Graph Plot of Snell's Law</span>
+    </div>
+    <div class="task">
+      <span onclick="jump('./task-5.html')" class="underline task-number">TASK 5</span>
+      <span class="explaination-text">Interactive Simulation of Image Reflection in a Plane Mirror</span>
+    </div>
+    <div class="task">
+      <span onclick="jump('./task-6.html')" class="underline task-number">TASK 6</span>
+      <span class="explaination-text">Interactive Simulation of Image Transformation through a Convex Lens outside its Focal Range</span>
+    </div>
+    <div class="task">
+      <span onclick="jump('./task-7.html')" class="underline task-number">TASK 7</span>
+      <span class="explaination-text">Interactive Simulation of Image Transformation through a Convex Lens inside its Focal Range</span>
+    </div>
+    <div class="task">
+      <span onclick="jump('./task-8.html')" class="underline task-number">TASK 8</span>
+      <span class="explaination-text">Interactive Simulation of Image Reflection in a Concave Spherical Mirror</span>
+    </div>
+    <div class="task">
+      <span onclick="jump('./task-9.html')" class="underline task-number">TASK 9</span>
+      <span class="explaination-text">Interactive Simulation of Image Reflection in a Convex Spherical Mirror</span>
+    </div>
+    <div class="task">
+      <span onclick="jump('./task-10.html')" class="underline task-number">TASK 10</span>
+      <span class="explaination-text">Interactive Simulation of the Formation of an Anamorphic Image</span>
+    </div>
+    <div class="task">
+      <span onclick="jump('./task-11.html')" class="underline task-number">TASK 11</span>
+      <span class="explaination-text">Various Interactive Simulations and Graph Plots on Rainbow Physics</span>
+    </div>
+    <div class="task">
+      <span onclick="jump('./task-12.html')" class="underline task-number">TASK 12</span>
+      <span class="explaination-text">Various Interactive Simulations and Graph Plots on Triangular Prism Dispersion</span>
+    </div>
+    <div class="task">
+      <span onclick="jump('./extension-task.html')" class="underline task-number">EXTENSION TASK</span>
+      <span class="explaination-text">Interactive Simulation of Myopia and Hyperopia Correction</span>
+    </div>
+  </div>
+
+
+
+  <div id="imageContainer"> 
+    <img id="myImage" class="img-1" src="assets/images/colorful-abstract-wave-27-4k.jpg" alt=""> 
   </div>
 
   <!-- PUT MAIN CODE ABOVE THIS -->
@@ -99,6 +117,7 @@
   <div id="footer"></div>
 
   <script src="https://www.unpkg.com/siteloader@0.0.90/dist/sl.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
   <script src="assets/js/task-index.js"></script>
   <script src="assets/js/main.js"></script>
 </body>

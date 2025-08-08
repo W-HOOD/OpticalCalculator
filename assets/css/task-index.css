@@ -8,10 +8,10 @@
   height: 100%;
   background: linear-gradient(
     135deg,
-    rgba(232, 121, 249, 0.15) 0%,    /* purple */
-    rgba(96, 165, 250, 0.15) 33%,    /* blue */
-    rgba(94, 234, 212, 0.15) 66%,    /* green */
-    rgba(232, 121, 249, 0.15) 100%   /* purple */
+    rgba(232, 121, 249, 0.15) 0%,
+    rgba(96, 165, 250, 0.15) 33%,
+    rgba(94, 234, 212, 0.15) 66%,
+    rgba(232, 121, 249, 0.15) 100%
   );
   background-size: 300% 300%;
   animation: gentleFlow 25s ease infinite;
@@ -68,52 +68,69 @@
 
 .top-padding {
     content: "";
-    padding-top: 10%;
+    padding-top: 8%;
 }
 
 .master {
     display: block;
     width: 100%;
     height: 100%;
-    padding: 0;
-    font-size: 20px;
-    font-weight: 500;
-    font-style: normal;
-    letter-spacing: 2px;
+    padding-bottom: 0px;
 }
 
 .task {
-    left: 10%;
-    display: inline-block;
-    margin-bottom: 30px;
-    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    gap: 4.5px;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 3px;
+    transition: color 0.5s ease;
+    cursor: pointer;
+    color: #ffffff;
 }
 
 .task-links {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    gap: 50px;
     padding: 0;
     margin: 0;
-    margin-left: 10%;
     cursor: default;
+    mix-blend-mode: difference;
     font-family: 'Montserrat', sans-serif;
+    padding-bottom: 22px;
 }
 
-.task-links:hover .underline{
-    color: #bdbdbd;
-    transition: color 0.4s ease
+.task:hover{
+    color: #ffffff !important;
+    cursor: pointer;
 }
 
 .underline {
-    color: #000000;
     position: relative;
-    display: inline-block;
-    transition: color 0.4s ease;
 }
 
-.task-links .underline:hover {
-    color: #000000;
-    cursor: pointer;
-    transition: color 0.4s ease
+.task-links:has(.task-number:hover) .task {
+    color: #474747;
+}
+
+.task-number {
+    padding-bottom: 2px;
+}
+
+.explaination-text {
+    font-size: 12px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 1px;
 }
 
 .underline::after {
@@ -124,7 +141,7 @@
     background: linear-gradient(to right, #1eff00, #3e47f0);
     left: 0px;
     transform: scaleX(0);
-    transition: transform 0.4s ease;
+    transition: transform 0.5s ease;
     bottom: -1px;            
     transform-origin: center;  
     will-change: transform;
@@ -132,5 +149,22 @@
 
 .underline:hover::after {
     transform: scaleX(1);
+}
+
+#imageContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+}
+#imageContainer > * {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
 }
 

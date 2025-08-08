@@ -2,82 +2,187 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TASK 1 | OPTICAL CALCULATOR</title>
-  <link rel="icon" type="image/x-icon" href="assets\images\logo.png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TASK 1 | OPTICAL CALCULATOR</title>
+    <link rel="icon" href="assets\images\logo1.png" type="image/x-icon" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="assets/css/main.css" />
-  <link rel="stylesheet" href="assets/css/task-1.css" />
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/task-1.css" />
 </head>
 
 <body>
 
-  <div id="main"></div>
-
   <!-- Loading Animation -->
-  <div class="loading-container">
-    <div class="box1"></div>
-    <div class="box2"></div>
-    <div class="loading-bar">
-      <div class="loading-colour"></div>
+    <div class="loading-container">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="loading-bar">
+            <div class="loading-colour"></div>
+        </div>
+        <div class="loading-corner">
+            <div class="loading-num">0</div>
+        </div>
     </div>
-    <div class="loading-corner">
-      <div class="loading-num">0</div>
+
+    <!-- invisible image for siteloader; siteloader breaks if there's nothing to load-->
+    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" style="display: none;" />
+
+    <!-- Shared Header -->
+    <div id="header"></div>
+
+    <!-- Background -->
+    <div class="rainbow-bg"></div>
+    <div class="rainbow-shape shape-1"></div>
+    <div class="rainbow-shape shape-2"></div>
+    <div class="rainbow-shape shape-3"></div>
+
+    <!-- PUT MAIN CODE BELOW THIS -->
+    <!-- PUT MAIN CODE BELOW THIS -->
+    <!-- PUT MAIN CODE BELOW THIS -->
+
+    <div class="top-padding"></div>
+
+
+
+
+    <div class="main-container">
+        <div class="chart-container">
+            <div>
+                <canvas id="chart-task-1"></canvas>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <div class="title">REFRACTIVE INDEX</div>
+
+            <div class="mode-toggle-wrapper">
+                <button id="modeToggle1"></button>
+                <label for="modeToggle1" class="mode-toggle hover-underline fade">TASK A</label>
+                <span class="separator">|</span>
+                <button id="modeToggle2"></button>
+                <label for="modeToggle2" class="mode-toggle hover-underline fade">TASK B</label>
+            </div>
+
+            <div class="title-small modeOneShow">SELLMEIER EQUATION:</div>
+
+            <div class="title-small modeTwoShow">EMPIRICAL FORMULA:</div>
+
+            <div class="modeOneShow">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mi>n</mi>
+                <mo>=</mo>
+                <msqrt>
+                  <mrow>
+                    <mn>1</mn>
+                    <mo>+</mo>
+                    <munderover>
+                      <mo>∑</mo>
+                      <mi>k</mi>
+                      <mi></mi>
+                    </munderover>
+                    <mfrac>
+                      <msub>
+                        <mi>a</mi>
+                        <mi>k</mi>
+                      </msub>
+                      <mrow>
+                        <msup>
+                          <mi>λ</mi>
+                          <mn>2</mn>
+                        </msup>
+                        <mo>−</mo>
+                        <msub>
+                          <mi>b</mi>
+                          <mi>k</mi>
+                        </msub>
+                      </mrow>
+                    </mfrac>
+                    <msup>
+                      <mi>λ</mi>
+                      <mn>2</mn>
+                    </msup>
+                  </mrow>
+                </msqrt>
+              </math>
+            </div>
+
+            <div class="modeTwoShow">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msup>
+                  <mrow>
+                    <mo>(</mo>
+                    <msup>
+                      <mi>n</mi>
+                      <mn>2</mn>
+                    </msup>
+                    <mo>−</mo>
+                    <mn>1</mn>
+                    <mo>)</mo>
+                  </mrow>
+                  <mrow>
+                    <mo>−</mo>
+                    <mn>2</mn>
+                  </mrow>
+                </msup>
+                <mo>=</mo>
+                <mn>1.731</mn>
+                <mo>−</mo>
+                <mn>0.261</mn>
+                <mo>&#8290;</mo>
+                <msup>
+                  <mrow>
+                    <mo>(</mo>
+                    <mfrac>
+                      <mi>f</mi>
+                      <mrow>
+                        <msup>
+                          <mn>10</mn>
+                          <mn>15</mn>
+                        </msup>
+                        <mo>&#8290;</mo>
+                        <mi>Hz</mi>
+                      </mrow>
+                    </mfrac>
+                    <mo>)</mo>
+                  </mrow>
+                  <mn>2</mn>
+                </msup>
+              </math>
+            </div>
+
+            <div class="text modeOneShow">
+                A model showing the refractive index of crown glass across visible light wavelengths, with the curve colours representing their corresponding colours within the visible spectrum.
+
+            </div>
+
+            <div class="text modeTwoShow">
+                A model showing the refractive index of water across visible light frequencies, with the curve colours representing their corresponding colours within the visible spectrum.
+            </div>
+
+
+        </div>
     </div>
-  </div>
 
-  <!-- invisible image for siteloader; siteloader breaks if there's nothing to load-->
-  <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" style="display: none;" />
 
-  <!-- Shared Header -->
-  <div id="header"></div>
-
-  <!-- PUT MAIN CODE BELOW THIS -->
-  <!-- PUT MAIN CODE BELOW THIS -->
-  <!-- PUT MAIN CODE BELOW THIS -->
-
-<div class="info-graph-container">
-  <div class="info">
-    <p1> Task 1: Plotting Refractive index</p1>
-    <p id="description"> Choose whether to plot the refractive index of Crown glass using the sellmeier equations, or of water using the Empirical Formula.
-    <p id="equations">Sellmeier Equation:<br> \( n^2(\lambda) = 1 + \sum_{i=1}^{3} \frac{B_i \lambda^2}{\lambda^2 - C_i} \)<br>
-                      Empirical Formula: <br> \( \left(n^2 - 1\right)^{-2} = 1.731 - 0.261 f^2 \)
-  </div>
-  <canvas id="graph"></canvas>
-  <div style ="display:none" id = "warningOverlay"><div class="warning-message" >X maximum must be greater than X minimum!</div></div>
-</div>
-  <select name="Choose what to input" id="input_choice">
-    <option value="wavelength">Input Wavelength to plot n of crown glass</option>
-    <option value="frequency">Input Frequency to plot n of water</option>
-  </select>
-  <div class="input-controls">
-  <input id="x_start" placeholder="X minimum" />
-  <input id="x_end" placeholder="X maximum" />
-</div>
 
   <!-- PUT MAIN CODE ABOVE THIS -->
   <!-- PUT MAIN CODE ABOVE THIS -->
   <!-- PUT MAIN CODE ABOVE THIS -->
 
   <!-- Shared Footer -->
-  <div id="footer"></div>
+    <div id="footer"></div>
 
-  <script src="https://www.unpkg.com/siteloader@0.0.90/dist/sl.umd.js"></script>
-  <script src=https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="assets/js/task-1.js"></script>
-  <script src="assets/js/main.js"></script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <script src="https://www.unpkg.com/siteloader@0.0.90/dist/sl.umd.js"></script>
+    <script src="assets/js/task-1.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

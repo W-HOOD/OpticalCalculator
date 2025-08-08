@@ -86,23 +86,20 @@ function switchMode(newMode) {
 
 // === Helper: Frequency (THz) to Wavelength (nm) ===
 function freqToWavelength(fTHz) {
-    const c = 3e8;               // speed of light (m/s)
-    const fHz = fTHz * 1e12;     // frequency in Hz
-    const wavelengthM = c / fHz; // wavelength in meters
-    return wavelengthM * 1e9;    // wavelength in nanometers
+    const c = 299792458;
+    const fHz = fTHz * 1e12; 
+    const wavelengthM = c / fHz;
+    return wavelengthM * 1e9;
 }
 
 function freqToRGB(fTHz) {
     const fMin = 405;
     const fMax = 790;
 
-    // Clamp frequency within bounds
     const fClamped = Math.min(Math.max(fTHz, fMin), fMax);
 
-    // Convert to wavelength (nm)
     const wavelength = freqToWavelength(fClamped);
 
-    // Clamp wavelength visible range: 380-750 nm
     const wlClamped = Math.min(Math.max(wavelength, 380), 750);
 
     const rgb = wavelengthToRGB(wlClamped);
@@ -373,7 +370,6 @@ function loadTaskAGraph() {
     const minPointFirst = findMinPoint(data1);
     const maxPointSecond = findMaxPoint(data2);
 
-    // Clamp slider frequency to common range
     const clampedF = normalizeFreq(f);
     const primaryColor = freqToRGB(clampedF);
 
@@ -577,7 +573,6 @@ function loadTaskBGraph() {
         if (id && datasetOpacities[id] !== undefined) {
         const alpha = datasetOpacities[id];
         if (alpha < 0.01) {
-            // Skip drawing if fully transparent
             args.cancel = true;
             return;
         }
@@ -615,8 +610,8 @@ function loadTaskBGraph() {
             if (!chartInstance._gradientApplied) {
                 const gradient = createSpectralGradient(chartInstance.ctx, chartInstance);
                 chartInstance.data.datasets.forEach(ds => ds.borderColor = gradient);
-                chartInstance._gradientApplied = true; // prevent infinite loop
-                chartInstance.update(); // one-time update
+                chartInstance._gradientApplied = true;
+                chartInstance.update();
             }
         }
     };
@@ -730,7 +725,7 @@ function loadTaskCGraph() {
     for (let fVal = fMin; fVal <= fMax; fVal += step) {
         const n = computeNFromF(fVal);
 
-        const criticalAngle = Math.asin(1 / n); // radians
+        const criticalAngle = Math.asin(1 / n);
         dataCritical.push({ x: fVal, y: (criticalAngle * 180) / Math.PI });
 
         const arg1 = (9 - n * n) / 8;
@@ -792,7 +787,6 @@ function loadTaskCGraph() {
         const id = chart.data.datasets[args.index].id;
 
         if (meta.hidden) {
-        // Completely skip drawing this dataset if hidden
         args.cancel = true;
         return;
         }
@@ -800,7 +794,6 @@ function loadTaskCGraph() {
         if (id && datasetOpacities[id] !== undefined) {
         const alpha = datasetOpacities[id];
         if (alpha < 0.01) {
-            // Skip drawing if fully transparent (fade out complete)
             args.cancel = true;
             return;
         }
@@ -872,7 +865,7 @@ function loadTaskCGraph() {
                     id: 'primary',
                     label: 'Primary Rainbow',
                     data: dataCurve1,
-                    borderColor: 'transparent', // will be replaced by gradient plugin
+                    borderColor: 'transparent',
                     backgroundColor: 'transparent',
                     pointRadius: 0,
                     borderWidth: 2,
@@ -883,7 +876,7 @@ function loadTaskCGraph() {
                     id: 'secondary',
                     label: 'Secondary Rainbow',
                     data: dataCurve2,
-                    borderColor: 'transparent', // will be replaced by gradient plugin
+                    borderColor: 'transparent',
                     backgroundColor: 'transparent',
                     pointRadius: 0,
                     borderWidth: 2,
@@ -975,13 +968,12 @@ function loadTaskDCanvas() {
     ctx.globalCompositeOperation = 'source-over';
     ctx.scale(dpr, dpr);
 
-    // Set origin to center of canvas horizontally and vertically (origin = horizon line)
+    // Set origin to center of canvas horizontally and vertically
     const cx = cssSize / 2;
     const cy = cssSize / 2;
 
     ctx.translate(cx, cy);
 
-    // Scale factor to make rainbow appear closer / bigger radius
     const scaleFactor = 1.5;
     const pixelsPerDegree = (cssSize / 2 / 90) * scaleFactor;
 
@@ -1040,14 +1032,14 @@ function loadTaskDCanvas() {
         if (primaryRadius) {
             ctx.beginPath();
             ctx.strokeStyle = rainbowColors[i];
-            ctx.arc(0, verticalOffset, primaryRadius, 0, 2 * Math.PI); // Shift center down
+            ctx.arc(0, verticalOffset, primaryRadius, 0, 2 * Math.PI);
             ctx.stroke();
         }
 
         if (secondaryRadius) {
             ctx.beginPath();
             ctx.strokeStyle = rainbowColors[i];
-            ctx.arc(0, verticalOffset, secondaryRadius, 0, 2 * Math.PI); // Shift center down
+            ctx.arc(0, verticalOffset, secondaryRadius, 0, 2 * Math.PI);
             ctx.stroke();
         }
     });
@@ -1055,23 +1047,22 @@ function loadTaskDCanvas() {
     
 
 
-    // Reset transform so grid draws with canvas coordinates
+    // Reset transform
     ctx.resetTransform();
     ctx.scale(dpr, dpr);
-    // Draw the axis/grid last so it appears on top
+
     drawGrid(ctx, cssSize, cssSize, 50);
 
 
-    // Draw transparent black rectangle over bottom half (on top of grid)
     ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
-    ctx.fillRect(0, cssSize / 2, cssSize, 300); // Draw from canvas center downward
+    ctx.fillRect(0, cssSize / 2, cssSize, 300);
 
-    // Draw "HORIZON" label centered in the black rectangle
+
     ctx.fillStyle = 'white';
     ctx.font = "700 35px Montserrat, sans-serif";
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('HORIZON', cssSize / 2, cssSize / 2 + 150); // Centered horizontally and vertically within rect
+    ctx.fillText('HORIZON', cssSize / 2, cssSize / 2 + 150);
 
     
 }
@@ -1084,6 +1075,9 @@ function loadTaskDCanvas() {
 
 // === Initialization ===
 window.onload = () => {
+
+    const activeLabel = document.querySelector(`label[for="modeToggle${currentMode}"]`);
+    activeLabel.classList.add('active-mode');
 
     const nav = document.querySelector('.mode-toggle-wrapper');
     const links = nav.querySelectorAll('.fade');

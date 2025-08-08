@@ -3,11 +3,10 @@ const dpr = baseDpr * 3;
 const cssSize = 600;
 const internalSize = cssSize * dpr;
 
-// Add these with your other global variables
 let gridSize = 40;  // Adjust tessellation density
-let indexBuffer;    // Will hold our index buffer
-let indices = [];   // Will hold triangle indices
-let vertexCount;    // Track total vertices
+let indexBuffer;
+let indices = [];
+let vertexCount;
 
 let warningVisible = false;
 
@@ -162,18 +161,17 @@ function drawArc(ctx, mirrorX, mirrorY, radius, canvasSize, dpr) {
 
     ctx.save();
     
-    // 1. Draw mirror outline (no fill)
+    // 1. Draw mirror outline
     ctx.lineWidth = 1;
     ctx.strokeStyle = '#c1b80f';
     ctx.beginPath();
     ctx.arc(px, py, radius, 1.5 * Math.PI, 0.5 * Math.PI, false);
     ctx.stroke();
 
-    // 4. Draw vertical dashed lines 
-    ctx.setLineDash([5, 3]); // Dash pattern
+    // Draw vertical dashed lines 
+    ctx.setLineDash([5, 3]);
     ctx.strokeStyle = '#535007ff';
     
-    // line
     ctx.beginPath();
     ctx.moveTo(px, py - radius);
     ctx.lineTo(px, -canvasSize);
@@ -199,11 +197,11 @@ function drawArc(ctx, mirrorX, mirrorY, radius, canvasSize, dpr) {
 
 
     ctx.strokeStyle = '#074953ff';
-    //INSERT THE PARABOLA HERE
-    // --- Draw parabola of reflection ---
-    const f = radius / 2; // focal length
+
+    // Draw parabola
+    const f = radius / 2;
     const a = 1 / (2 * radius);
-    const step = 1; // y step in world units
+    const step = 1;
     const yMin = mirrorY - radius;
     const yMax = mirrorY + radius;
 
@@ -224,7 +222,7 @@ function drawArc(ctx, mirrorX, mirrorY, radius, canvasSize, dpr) {
         }
     }
 
-    ctx.stroke(); // strokeStyle is already set above
+    ctx.stroke();
 
     ctx.strokeStyle = '#13aac2ff';
     ctx.setLineDash([]);
@@ -235,24 +233,21 @@ function drawArc(ctx, mirrorX, mirrorY, radius, canvasSize, dpr) {
     ctx.strokeStyle = '#c1b80f';
     ctx.lineWidth = 1;
 
-    
-    // 3. Center of mirror '+'
     drawCross(ctx, px, py, 5);
 
-    // Reset line dash for future drawings
     ctx.setLineDash([]);
     
 
     ctx.restore();
 }
 
-// Helper function to draw '+' markers
+
 function drawCross(ctx, x, y, size) {
   ctx.beginPath();
-  // Diagonal line (top-left to bottom-right)
+
   ctx.moveTo(x - size, y - size);
   ctx.lineTo(x + size, y + size);
-  // Diagonal line (bottom-left to top-right)
+
   ctx.moveTo(x - size, y + size);
   ctx.lineTo(x + size, y - size);
   ctx.stroke();
@@ -391,7 +386,6 @@ function checkFocalIntersectionAndDrawWarning(img, scaleFactor) {
         warningOverlay.style.opacity = 1;
 
     } else {
-        // Don't reset canvas — just let CSS handle the fade
         warningVisible = false;
         warningOverlay.style.opacity = 0;
     }
@@ -431,7 +425,7 @@ function main() {
 
     const gl = glCanvas.getContext("webgl2", { alpha: true });
     gl.enable(gl.BLEND);
-    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA); // Standard alpha blending
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
     if (!gl) {
         alert("WebGL2 not supported.");
         return;
@@ -449,14 +443,13 @@ function main() {
     const mirrorYLoc = gl.getUniformLocation(program, "u_mirrorY");
     const radiusLoc = gl.getUniformLocation(program, "u_radius");
     const scaleLoc = gl.getUniformLocation(program, "u_scale");
-    const aspectLoc = gl.getUniformLocation(program, "u_aspect");    // New
-    const applyMirrorLoc = gl.getUniformLocation(program, "u_applyMirror"); // New
+    const aspectLoc = gl.getUniformLocation(program, "u_aspect");
+    const applyMirrorLoc = gl.getUniformLocation(program, "u_applyMirror");
 
     const renderImagesWithUniforms = (texture, img, scaleFactor) => {
         renderImages(
             gl, program, 
             matrixLoc, texture, img, scaleFactor,
-            // New uniforms:
             imageXLoc, imageYLoc,
             mirrorXLoc, mirrorYLoc,
             radiusLoc, scaleLoc,
@@ -466,15 +459,10 @@ function main() {
         checkFocalIntersectionAndDrawWarning(img, scaleFactor);
     };
 
-    // Replace the positions and texCoords arrays with:
-
-
-    // Delete the old position/texCoord arrays and replace with:
-
     // Generate vertex grid
     const vertices = [];
     const texCoords = [];
-    indices = []; // Reset indices
+    indices = [];
 
     for (let y = 0; y <= gridSize; y++) {
         for (let x = 0; x <= gridSize; x++) {
@@ -500,21 +488,21 @@ function main() {
 
     vertexCount = indices.length; // Store total vertices
 
-    // Update position buffer (keep the same buffer reference)
+    // Update position buffer
     const posBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, posBuffer);
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
     gl.enableVertexAttribArray(positionLoc);
     gl.vertexAttribPointer(positionLoc, 2, gl.FLOAT, false, 0, 0);
 
-    // Update texture coordinate buffer (keep the same buffer reference)
+    // Update texture coordinate buffer
     const texBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, texBuffer);
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(texCoords), gl.STATIC_DRAW);
     gl.enableVertexAttribArray(texCoordLoc);
     gl.vertexAttribPointer(texCoordLoc, 2, gl.FLOAT, false, 0, 0);
 
-    // Create and bind index buffer (NEW)
+    // Create and bind index buffer
     const indexBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
     gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
@@ -613,7 +601,7 @@ function main() {
         ctx.globalCompositeOperation = 'source-over';
         drawArc(ctx, mirrorX, mirrorY, radius, cssSize, dpr);
     };
-    defaultImg.src = "assets/images/01-m416-lootprint.jpg";
+    defaultImg.src = "assets/images/Thumbnail.png";
 }
 
 main();

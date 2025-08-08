@@ -1,8 +1,8 @@
-// Adjustable parameters (to be linked to sliders later)
-let y = 2;      // meters
-let L = 10;     // meters
-let c = 299792458;    // speed of light (or wave speed), in m/s
-let n = 1.5;    // refractive index
+
+let y = 2;
+let L = 10;
+let c = 299792458;
+let n = 1.5;
 
 let chart = null;
 
@@ -51,8 +51,8 @@ function updateValuesAndChart() {
 }
 
 const fadeDuration = 500; // fade duration in milliseconds
-let dashedLineOpacity = 1; // current opacity of dashed line (0 to 1)
-let targetOpacity = 1;      // target opacity
+let dashedLineOpacity = 1;
+let targetOpacity = 1;
 let lastTimestamp = null;
 
 const highlightMinPlugin = {
@@ -137,10 +137,10 @@ const drawMinPointOverlayPlugin = {
 
     const size = 6;
     ctx.beginPath();
-    // Horizontal line of plus
+
     ctx.moveTo(px - size, py);
     ctx.lineTo(px + size, py);
-    // Vertical line of plus
+
     ctx.moveTo(px, py - size);
     ctx.lineTo(px, py + size);
     ctx.stroke();
@@ -205,7 +205,7 @@ function loadGraph() {
                     },
                     ticks: {
                         callback: function(value) {
-                            // Format value to 3 significant figures
+                            
                             return Number.parseFloat(value).toPrecision(3);
                         },
                     }
@@ -252,13 +252,13 @@ function loadGraph() {
     };
 
     const ctx = document.getElementById('chart-task-3').getContext('2d');
-    chart = new Chart(ctx, config);  // Assign here
+    chart = new Chart(ctx, config); 
 }
 
 document.addEventListener('DOMContentLoaded', function () {
   loadGraph();
 
-  // Add slider listeners
+  //slider listeners
   document.getElementById('sliderY').addEventListener('input', e => {
     y = parseFloat(e.target.value);
     updateValuesAndChart();

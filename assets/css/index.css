@@ -10,20 +10,12 @@
 }
 
 html, body {
-  overflow-x: hidden;  /* This is the key line to prevent horizontal scroll */
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
   width: 100%;
 }
 
-.img-1 {
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  display: block;
-  object-fit: cover
-}
 
 main {
   padding: 2em;
@@ -86,21 +78,21 @@ main {
   transform: translateY(30px);
   transition: opacity 2s cubic-bezier(0.165, 0.84, 0.44, 1), 
               transform 2s cubic-bezier(0.165, 0.84, 0.44, 1);
-  white-space: nowrap; /* Prevents word breaking */
+  white-space: nowrap;
 }
 
 .word-space {
   display: inline-block;
-  white-space: pre; /* Preserves spaces exactly */
+  white-space: pre;
 }
 
-/* Animation-ready state */
+
 .text-container .word {
   opacity: 0;
   transform: translateY(30px);
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 1200px) {
   .text-one { font-size: 100px; }
   .text-two { font-size: 40px; }
@@ -128,9 +120,5 @@ main {
   height: 100% !important;
   object-fit: cover;
 }
-canvas {
-  display: block;
-  width: 100% !important;
-  height: 100% !important;
-}
+
 

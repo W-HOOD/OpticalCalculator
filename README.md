@@ -16,4 +16,4 @@ The repository includes:
 
 ## 📽️ Showcase Video (Click Thumbnail to View)
 
-[![Watch the video](assets/images/Thumbnail.png)](https://youtu.be/x_0dHoGPLj4)
+[![Watch the video](assets/images/Thumbnail.png)](Youtube LINK HERE)

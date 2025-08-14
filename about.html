@@ -51,18 +51,56 @@
   <!-- PUT MAIN CODE BELOW THIS -->
 
   <main>
-    <h1 class = "title">Optical Calculator: Submission for the BPhO Computational Challenge, 2025</h1>
+    <h1 class = "title">OPTICAL CALCULATOR: Submission for the BPhO Computational Challenge, 2025</h1>
     <p class="subtitle">William Hood and Tony Jiang, Winchester College</p>
 
     <p class = "description">
-In 2025, the theme of the BPhO Computational Challenge was optics. This was split into twelve challenges, all of which involve creating computer models to demonstrate various physical occurrences to do with light, and the ability to use mathematical methods to describe them. These ranged from using simple formulae to plot refractive index against frequency/wavelength, to modelling rainbows. <br>
-Although these challenges were more or less solvable using a spreadsheet software like Microsoft Excel, to properly tackle them and provide user-friendly programs with customised GUIs, code was necessary. <br>
-At first, given our previous knowledge of Python (from GCSE Computer Science), it seemed that Python would be an ideal language to use. It is a high-level language, meaning it is very easy to code in, especially given our previous experience with it, and one can easily transfer python files into executables, which would allow anyone with a Windows OS to use our programs. This would mean ease of use for most, with only an .exe file needing to be shared to any potential user. There were also, however, significant drawbacks. Python is a slower language, and also takes up large quantities of memory when doing complex calculations (as we need). Furthermore, it lacks support in mobile environments, meaning only someone with a Windows operating system can easily use it, even when transferred to an exe file. One also has to send over a file for it to be accessed, which can be an annoyance, especially if files are large. <br><br>
-These propagation and speed problems led us to think of other options. We considered C and C++, however these languages are too low-level and lack the support for visual display that we needed (given the whole program needed its own GUI), and despite its efficiency in performing calculations, still needs a file to be transferred, and a compiler to be installed. In the end we settled for creating a website to contain our models. Not only does this make use of the Internet to make it incredibly easy to share our code with others, but also allows us to make use of javascript to perform the calculations and add interactive GUI elements, HTML to structure the webpages however we like, and CSS to make the whole project look more professional and clean.<br>
-Javascript, in some ways, is ideal for this project. It is compiled rather than interpreted, meaning that it is faster than python, and also is very easy to integrate into HTML webpages.<br>
-</p>
+    In 2025, the theme of the BPhO Computational Challenge was optics. This was split into twelve challenges, all of which involve creating computer models to demonstrate various physical occurrences to do with light, and the ability to use mathematical methods to describe them. These ranged from using simple formulae to plot refractive index against frequency/wavelength, to modelling rainbow behaviour. <br><br>
+    Although these challenges were more or less solvable using a spreadsheet software like Microsoft Excel, to properly tackle them and provide user-friendly programs with customised GUIs, code was necessary. <br><br>
+    At first, given our previous knowledge of Python (from GCSE Computer Science), it seemed that Python would be an ideal language to use. Being a high-level language, coding in Python is simple, and one can easily transfer these python programs into executables, which would allow anyone with a Windows OS to use our GUI. This would mean ease of use for most, with only an .exe file needing to be shared to any potential user. However, there will also be significant drawbacks. Python is a slower language, and also takes up large quantities of memory when doing complex calculations for our needs. Furthermore, it lacks support in mobile environments, meaning only someone with a Windows operating system can easily use it, even when transferred to an .exe file. Download is also required to run these .exe files, which can be of annoyance, especially when we have twelve separate tasks to code. <br><br>
+    These propagation and speed problems led us to develop this website. Through integrating our submission into a website, our code can be easily shared through the Internet, and anyone in the world can interact with our programs without download. Our interactive GUI was created and styled with Javascript, HTML, and CSS. In hindsight, JavaScript was ideal for this project. It is executed with JIT compilation, making it faster than Python, while also being native to browsers, which makes its integration into HTML pages extremely straightforward.<br><br>
+    To support our work, we also wrote two summary papers exploring in detail the physics and our interactive implementation of tasks relating to Fermat's Principle and Descartes' Theory on Rainbows. These papers can be read and downloaded with the links below.
+    </p>
+
+    <div class="task-links">
+      <div class="task">
+        <span onclick="jump('assets/papers/paper-1.pdf')" class="underline task-number">PAPER 1</span>
+        <span class="explaination-text1">Fermat's Principle, Accompanies Tasks 3 & 4</span>
+      </div>
+      <div class="task">
+        <span onclick="jump('assets/papers/paper-2.pdf')" class="underline task-number">PAPER 2</span>
+        <span class="explaination-text1">Descartes' Theory on Rainbows, Accompanies Task 11</span>
+      </div>
+    </div>
+
+    <p class = "description">
+    As a part of the competition requirements, we needed to create a 3-minute video showcasing our website. This video can be accessed with the link below.
+    </p>
+
+    <div class="task-links">
+      <div class="task">
+        <span onclick="jump('https://youtu.be/TAXB8t-l2-Q')" class="underline task-number">VIDEO</span>
+        <span class="explaination-text1">3-Minute YouTube Video Showcasing this Website</span>
+      </div>
+    </div>
+
+    <p class = "description">
+    This website is hosted on GitHub. You can view or download our source code, papers, and other resources used from our repository, which is available with the link below.
+    </p>
+
+    <div class="task-links">
+      <div class="task">
+        <span onclick="jump('https://github.com/W-HOOD/OpticalCalculator')" class="underline task-number">REPOSITORY</span>
+        <span class="explaination-text1">GitHub Repository for this Website</span>
+      </div>
+    </div>
+
   </main>
 
+
+  <div id="imageContainer"> 
+    <img id="myImage" class="img-1" src="assets/images/colorful-abstract-wave-27-4k.jpg" alt=""> 
+  </div>
 
   <!-- PUT MAIN CODE ABOVE THIS -->
   <!-- PUT MAIN CODE ABOVE THIS -->
@@ -72,6 +110,7 @@ Javascript, in some ways, is ideal for this project. It is compiled rather than 
   <div id="footer"></div>
 
   <script src="https://www.unpkg.com/siteloader@0.0.90/dist/sl.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
   <script src="assets/js/about.js"></script>
   <script src="assets/js/main.js"></script>
 </body>

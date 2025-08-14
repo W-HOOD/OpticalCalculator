@@ -1,6 +1,6 @@
 let saturationOn = false;
 let planeMesh;
-let saturationTarget = 0.0;   // target saturation, 1 = full color, 0 = mostly grayscale
+let saturationTarget = 0.0;
 
 
 // animation logic

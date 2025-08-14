@@ -1,4 +1,6 @@
-
+.nav-container {
+  mix-blend-mode: normal !important;
+}
 
 .home-footer {
   position: fixed;
@@ -6,7 +8,6 @@
   width: 100%;
   top: 90%;
   text-align: center;
-  mix-blend-mode: difference;
 }
 
 html, body {

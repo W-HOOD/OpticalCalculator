@@ -1,74 +1,14 @@
-
-
-.rainbow-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    135deg,
-    rgba(232, 121, 249, 0.15) 0%,
-    rgba(96, 165, 250, 0.15) 33%,
-    rgba(94, 234, 212, 0.15) 66%,
-    rgba(232, 121, 249, 0.15) 100%
-  );
-  background-size: 300% 300%;
-  animation: gentleFlow 25s ease infinite;
-  opacity: 0.7;
-  z-index: -1;
+.nav-container {
+  mix-blend-mode: normal !important;
 }
 
-@keyframes gentleFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.rainbow-shape {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.3;
-  z-index: -1;
-  animation: float 15s infinite ease-in-out;
-}
-
-.shape-1 {
-  width: 300px;
-  height: 300px;
-  background: rgba(232, 121, 249, 0.4);
-  top: 20%;
-  left: 10%;
-  animation-delay: 0s;
-}
-
-.shape-2 {
-  width: 400px;
-  height: 400px;
-  background: rgba(96, 165, 250, 0.3);
-  bottom: 15%;
-  right: 10%;
-  animation-delay: 3s;
-}
-
-.shape-3 {
-  width: 250px;
-  height: 250px;
-  background: rgba(94, 234, 212, 0.3);
-  top: 60%;
-  left: 30%;
-  animation-delay: 6s;
-}
-
-@keyframes float {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(50px, 30px); }
+footer {
+  mix-blend-mode: normal !important;
 }
 
 .top-padding {
     content: "";
-    padding-top: 8%;
+    padding-top: 7%;
 }
 
 .master {
@@ -81,7 +21,7 @@
 .task {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center;    
     text-align: center;
     justify-content: center;
     gap: 4.5px;
@@ -104,7 +44,6 @@
     padding: 0;
     margin: 0;
     cursor: default;
-    mix-blend-mode: difference;
     font-family: 'Montserrat', sans-serif;
     padding-bottom: 22px;
 }

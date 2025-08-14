@@ -1,6 +1,3 @@
-
-
-
 // Cursor
 function initCursor() {
   const cursor = document.createElement('div');

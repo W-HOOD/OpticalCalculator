@@ -3,7 +3,7 @@ const dpr = baseDpr * 3;
 const cssSize = 600;
 const internalSize = cssSize * dpr;
 
-let gridSize = 40;  // Adjust tessellation density
+let gridSize = 40;
 let indexBuffer; 
 let indices = [];
 let vertexCount;
